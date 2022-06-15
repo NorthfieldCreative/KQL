@@ -1,0 +1,15 @@
+// Retrieve Safe Link activities
+CloudAppEvents
+| where ActionType == 'TIUrlClickData'
+| extend xRawEventData = parse_json(RawEventData)
+| extend clickactionId = tostring(parse_json(xRawEventData).UrlClickAction)
+| extend ClickAction = iff(clickactionId == 2,"Blockpage",iff(clickactionId == 3,"PendingDetonationPage",iff(clickactionId == 4,"BlockPageOverride",iff(clickactionId == 5,"PendingDetonationPageOverride","Unknown"))))
+| extend Url = tostring(parse_json(xRawEventData).Url)
+| extend AppName = parse_json(xRawEventData).AppName
+| extend SourceId = tostring(parse_json(xRawEventData).SourceId)
+| extend UserId = parse_json(xRawEventData).UserId
+| extend TimeOfClick = parse_json(xRawEventData).TimeOfClick
+| extend EventDeepLink = parse_json(xRawEventData).EventDeepLink
+| extend SourceWorkload = parse_json(xRawEventData).SourceWorkload
+| extend OS = parse_json(xRawEventData).OS
+| project Timestamp,TimeOfClick, ActionType, Application, AccountDisplayName, UserId,ClickAction, Url, AppName, SourceWorkload, OS
