@@ -1,0 +1,6 @@
+user activity is generally reported from the Microsoft Office and Defender for Endpoint tables.
+
+Defender for Endpoint consists of the following 10 tables: DeviceEvents, DeviceFileCertificatelnfo, DeviceFileEvents, DevicelmageLoadEvents, Devicelnfo, DeviceLogonEvents, DeviceNetworkEvents, DeviceNetworklnfo, DeviceProcessEvents, and DeviceRegistryEvents.
+
+if you have the Defender for 365 Data Connector enabled for Microsoft Sentinel and you enable the Microsoft Defender for Office 365 logs, the OfficeActivity table isn’t the only Microsoft Office data you can query. Enabling these logs gives you access to EmailEvents, EmailUrlInfo, EmailAttachmentInfo, and EmailPostDeliveryEvents tables
+

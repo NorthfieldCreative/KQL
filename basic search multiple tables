@@ -1,0 +1,3 @@
+// KQL search operator supports the wildcard character. So, you can search for those IOCs across the entire Defender for Endpoint solution by doing the following:
+
+search in (Device*) "stringtosearch"
