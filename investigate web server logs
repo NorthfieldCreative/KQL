@@ -1,0 +1,3 @@
+w3ciislog
+| where TimeGenerated >= datetime(2024-04-30 16:37:19) and TimeGenerated <= datetime(2024-04-30 16:37:20)
+| search "192.96.41.68"

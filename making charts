@@ -1,0 +1,4 @@
+summarize & bin operators
+
+show me the maximum time (most recent) entry for each Identity
+| summarize arg_max(TimeGenerated,*) by Identity

@@ -1,0 +1,4 @@
+use has instead of contains if you want to see if an attribute contains any of a list of strings
+
+(this may be bad syntax, potential example only)
+| where AppDisplayName has ("string1","string2")
