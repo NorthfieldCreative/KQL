@@ -1,0 +1,8 @@
+AuditLogs
+| where TimeGenerated > ago(1d) // Modify the time range as needed
+| where OperationName == "Delete user"
+| project TimeGenerated, TargetResources, InitiatedBy
+| mv-expand TargetResources
+| extend DeletedAccount = tostring(TargetResources.userPrincipalName), DeletedBy = tostring(InitiatedBy.user.userPrincipalName)
+| project TimeGenerated, DeletedAccount, DeletedBy
+| order by TimeGenerated desc
